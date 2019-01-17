@@ -3,14 +3,29 @@
 
 namespace SaveLoad
 {
+	/// 各データの内容を保存する変数---------------
+
+	// クラス名を保存する
 	std::vector<std::string> v_className;
+
+	// X座標を保存する
 	std::vector<float> v_areaX;
+
+	// Y座標を保存する
 	std::vector<float> v_areaY;
+
+	// Z座標を保存する
 	std::vector<float> v_areaZ;
+
+	// 向きを保存する
 	std::vector<float> v_direction;
+
+	// データの個数を保存する
 	int num;
+	/// 各データの内容を保存する変数---------------
 
 
+	// データを追加する
 	void InitAdd(const std::string className, float const areaX, float const areaY, float const areaZ, float const direction)
 	{
 		num++;
@@ -22,6 +37,7 @@ namespace SaveLoad
 	}
 
 
+	// CSVに出力する
 	void Save()
 	{
 		std::ofstream saveFile;
@@ -48,6 +64,7 @@ namespace SaveLoad
 	}
 
 
+	// CSVから読み込む
 	void Load()
 	{
 		std::ifstream ifs;
@@ -89,9 +106,10 @@ namespace SaveLoad
 			v_areaZ.push_back(std::stof(mapdata[i][3].c_str()));
 			v_direction.push_back(std::stof(mapdata[i][4].c_str()));
 		}
-	}
+	} /// void Load()
 
 
+	// データの解放
 	void Reset()
 	{
 		num = 0;
@@ -108,38 +126,44 @@ namespace SaveLoad
 	}
 
 
+	// データの個数を渡す
 	const int GetIDNum()
 	{
 		return num;
 	}
 
 
+	// データのクラス名を渡す
 	const std::string GetName(int i)
 	{
 		return v_className[i];
 	}
 
 
+	// データのX座標を渡す
 	const float GetX(int i)
 	{
 		return v_areaX[i];
 	}
 
 
+	// データのY座標を渡す
 	const float GetY(int i)
 	{
 		return v_areaY[i];
 	}
 
 
+	// データのZ座標を渡す
 	const float GetZ(int i)
 	{
 		return v_areaZ[i];
 	}
 
 
+	// データの向きを渡す
 	const float GetDirection(int i)
 	{
 		return v_direction[i];
 	}
-}
+} /// namespace SaveLoad
