@@ -19,6 +19,10 @@ int main()
 	std::cout << typeid(*p_Aactor).name() << std::endl;
 	std::cout << typeid(*p_Bactor).name() << std::endl;
 
+	p_actor->Update();
+	p_actorA->Update();
+	p_actorA->Update();
+
 	if (typeid(*p_actor).name() == typeid(*p_actorA).name())
 	{
 		std::cout << "Šî’êƒNƒ‰ƒXActor‚ÆnewŽž‚ÉŒp³ƒNƒ‰ƒXActorA‚Íˆê’v‚Æ”»’f‚³‚ê‚é" << std::endl;
