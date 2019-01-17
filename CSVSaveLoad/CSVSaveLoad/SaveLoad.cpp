@@ -38,7 +38,7 @@ namespace SaveLoad
 
 
 	// CSVに出力する
-	void Save()
+	bool Save()
 	{
 		std::ofstream saveFile;
 
@@ -47,7 +47,8 @@ namespace SaveLoad
 		// ファイル読み込み失敗
 		if (saveFile.fail())
 		{
-			std::cout << "SaveError" << std::endl;
+			std::cerr << "SaveError" << std::endl;
+			return false;
 		}
 		else
 		{
@@ -61,11 +62,13 @@ namespace SaveLoad
 
 		// ファイルを閉じる
 		saveFile.close();
+
+		return true;
 	}
 
 
 	// CSVから読み込む
-	void Load()
+	bool Load()
 	{
 		std::ifstream ifs;
 		std::vector<std::vector<std::string>> mapdata;
@@ -73,7 +76,8 @@ namespace SaveLoad
 		// マップデータ読み込み失敗
 		if (ifs.fail())
 		{
-			std::cout << "LoadError" << std::endl;
+			std::cerr << "LoadError" << std::endl;
+			return false;
 		}
 
 		// 仮置き
@@ -106,6 +110,8 @@ namespace SaveLoad
 			v_areaZ.push_back(std::stof(mapdata[i][3].c_str()));
 			v_direction.push_back(std::stof(mapdata[i][4].c_str()));
 		}
+
+		return true;
 	} /// void Load()
 
 

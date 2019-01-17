@@ -12,11 +12,11 @@ namespace SaveLoad
 
 
 	// CSVに出力する
-	void Save();
+	bool Save();
 
 
 	// CSVから読み込む
-	void Load();
+	bool Load();
 
 
 	// データ追加時及び読み込み時に追加されたデータを削除する
