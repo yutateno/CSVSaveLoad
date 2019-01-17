@@ -2,7 +2,7 @@
 
 class Actor
 {
-private:
+protected:
 	float areaX;
 	float areaY;
 	float areaZ;
